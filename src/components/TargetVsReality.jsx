@@ -13,10 +13,11 @@ const targetData = [
 
 const TargetVsReality = () => {
   return (
-    <div className="bg-white rounded-2xl shadow-sm p-6">
+    <div className="bg-white rounded-2xl shadow-sm p-6 h-full flex flex-col">
       <h2 className="text-xl font-bold text-gray-800 mb-6">Target vs Reality</h2>
       
-      <ResponsiveContainer width="100%" height={200}>
+      <div className="flex-1">
+        <ResponsiveContainer width="100%" height="100%">
         <BarChart data={targetData}>
           <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
           <XAxis 
@@ -51,7 +52,8 @@ const TargetVsReality = () => {
             radius={[8, 8, 0, 0]}
           />
         </BarChart>
-      </ResponsiveContainer>
+        </ResponsiveContainer>
+      </div>
       
       <div className="flex justify-around mt-4 pt-4 border-t border-gray-100">
         <div className="text-center">

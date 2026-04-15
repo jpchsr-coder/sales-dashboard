@@ -13,10 +13,11 @@ const revenueData = [
 
 const TotalRevenue = () => {
   return (
-    <div className="bg-white rounded-2xl shadow-sm p-6">
+    <div className="bg-white rounded-2xl shadow-sm p-6 h-full flex flex-col">
       <h2 className="text-xl font-bold text-gray-800 mb-6">Total Revenue</h2>
       
-      <ResponsiveContainer width="100%" height={250}>
+      <div className="flex-1">
+        <ResponsiveContainer width="100%" height="100%">
         <BarChart data={revenueData}>
           <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
           <XAxis 
@@ -51,7 +52,8 @@ const TotalRevenue = () => {
             radius={[8, 8, 0, 0]}
           />
         </BarChart>
-      </ResponsiveContainer>
+        </ResponsiveContainer>
+      </div>
     </div>
   )
 }
