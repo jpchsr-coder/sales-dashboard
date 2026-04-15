@@ -29,10 +29,10 @@ function App() {
           <div className="flex-1 overflow-auto">
             {/* Top Row */}
             <div className="grid grid-cols-1 xl:grid-cols-3 gap-4 mb-4">
-              <div className="xl:col-span-2">
+              <div className="xl:col-span-2 h-full">
                 <TodaysSales />
               </div>
-              <div>
+              <div className="h-full">
                 <VisitorInsights />
               </div>
             </div>
