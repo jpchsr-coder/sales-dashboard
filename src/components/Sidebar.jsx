@@ -1,18 +1,33 @@
 import React from 'react'
-import { FiHome, FiTrendingUp, FiShoppingBag, FiPackage, FiFileText, FiMessageSquare, FiSettings, FiLogOut, FiAward } from 'react-icons/fi'
+import { useNavigate, useLocation } from 'react-router-dom'
+import { FiHome, FiTrendingUp, FiShoppingBag, FiPackage, FiFileText, FiMessageSquare, FiSettings, FiLogOut, FiAward, FiUsers } from 'react-icons/fi'
 
 const menuItems = [
-  { icon: FiHome, text: 'Dashboard', active: true },
-  { icon: FiTrendingUp, text: 'Leaderboard', active: false },
-  { icon: FiShoppingBag, text: 'Orders', active: false },
-  { icon: FiPackage, text: 'Products', active: false },
-  { icon: FiFileText, text: 'Sales Report', active: false },
-  { icon: FiMessageSquare, text: 'Messages', active: false },
-  { icon: FiSettings, text: 'Settings', active: false },
-  { icon: FiLogOut, text: 'Sign Out', active: false },
+  { icon: FiHome, text: 'Dashboard', path: '/' },
+  { icon: FiUsers, text: 'User Management', path: '/user-management' },
+  { icon: FiTrendingUp, text: 'Leaderboard', path: '/leaderboard' },
+  { icon: FiShoppingBag, text: 'Orders', path: '/orders' },
+  { icon: FiPackage, text: 'Products', path: '/products' },
+  { icon: FiFileText, text: 'Sales Report', path: '/sales-report' },
+  
+  { icon: FiMessageSquare, text: 'Messages', path: '/messages' },
+  { icon: FiSettings, text: 'Settings', path: '/settings' },
+  { icon: FiLogOut, text: 'Sign Out', path: '/logout' },
 ]
 
 const Sidebar = () => {
+  const navigate = useNavigate()
+  const location = useLocation()
+
+  const handleNavigation = (path) => {
+    if (path === '/logout') {
+      // Handle logout logic here
+      console.log('Logout clicked')
+      return
+    }
+    navigate(path)
+  }
+
   return (
     <div className="w-64 bg-white h-full  flex flex-col rounded-r-2xl">
       {/* Logo */}
@@ -28,8 +43,9 @@ const Sidebar = () => {
         {menuItems.map((item, index) => (
           <button
             key={index}
+            onClick={() => handleNavigation(item.path)}
             className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg mb-2 transition-colors ${
-              item.active
+              location.pathname === item.path
                 ? 'bg-primary-600 text-white'
                 : 'text-gray-600 hover:bg-gray-100'
             }`}
