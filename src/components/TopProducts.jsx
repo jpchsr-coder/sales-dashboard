@@ -9,11 +9,11 @@ const productsData = [
 
 const TopProducts = () => {
   return (
-    <div className="bg-white rounded-2xl shadow-sm p-6">
+    <div className="bg-white rounded-2xl shadow-sm p-6 h-full flex flex-col">
       <h2 className="text-xl font-bold text-gray-800 mb-6">Top Products</h2>
       
-      <div className="overflow-x-auto">
-        <table className="min-w-full divide-y divide-gray-200">
+      <div className="overflow-x-auto flex-1">
+        <table className="min-w-full divide-y divide-gray-200 h-full">
           <thead>
             <tr>
               <th scope="col" className="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">#</th>

@@ -50,14 +50,14 @@ function App() {
             </div>
 
             {/* Bottom Row */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-4">
-              <div>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-4">
+              <div className="lg:col-span-5 h-full min-h-[300px]">
                 <TopProducts />
               </div>
-              <div>
+              <div className="lg:col-span-4 h-full min-h-[300px]">
                 <SalesMapping />
               </div>
-              <div>
+              <div className="lg:col-span-3 h-full min-h-[300px]">
                 <VolumeVsService />
               </div>
             </div>
