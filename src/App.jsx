@@ -26,7 +26,7 @@ function App() {
           <Navbar />
 
           {/* Dashboard Content */}
-          <div className="flex-1 overflow-auto">
+          <div className="flex-1 ml-4 overflow-auto">
             {/* Top Row */}
             <div className="grid grid-cols-1 xl:grid-cols-3 gap-4 mb-4">
               <div className="xl:col-span-2 h-full">
