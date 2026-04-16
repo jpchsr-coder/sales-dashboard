@@ -6,7 +6,11 @@ A modern React.js dashboard application built with Vite, featuring a comprehensi
 
 ### Dashboard UI
 - **Responsive Layout**: Grid-based design with soft shadows and rounded corners
-- **Sidebar Navigation**: Complete menu system with Dabang Pro promotion card
+- **Custom Column Layout**: Optimized width distribution for better visual hierarchy
+  - Total Revenue & Top Products: Wider columns (5/12 grid span)
+  - Customer Satisfaction & Sales Mapping: Medium columns (4/12 grid span)
+  - Target vs Reality & Volume vs Service: Narrower columns (3/12 grid span)
+- **Sidebar Navigation**: Complete menu system with Dabang Pro promotion card and active state management
 - **Top Navbar**: Search bar, language dropdown, notifications, and user profile
 - **Sales Analytics**: 
   - Today's Sales cards with trend indicators
@@ -18,17 +22,30 @@ A modern React.js dashboard application built with Vite, featuring a comprehensi
   - Sales Mapping by country
   - Volume vs Service Level metrics
 
-### Users Management
-- **API Integration**: Fetches data from JSONPlaceholder API
-- **Search Functionality**: Real-time search by name or email (case insensitive)
-- **City Filtering**: Dropdown filter to filter users by city
-- **Sorting**: Toggle between A-Z and Z-A sorting by name
-- **Optimized Performance**: Uses React Query for caching and useMemo for filtering
+### User Management System
+- **Complete CRUD Interface**: Full-featured user management page
+- **API Integration**: Fetches data from JSONPlaceholder API using React Query
+- **Advanced Search**: Real-time search by name or email (case insensitive)
+- **City Filtering**: Dynamic dropdown filter populated from API data
+- **Smart Sorting**: Toggle between A-Z and Z-A sorting by name
+- **React Query Integration**: 
+  - Intelligent caching (5 minutes stale time, 10 minutes cache time)
+  - Automatic retry logic with exponential backoff
+  - Background refetching and error recovery
+  - Loading and error state management
+- **Performance Optimized**: Uses useMemo for filtering and sorting operations
+
+### Routing & Navigation
+- **React Router**: Complete client-side routing setup
+- **Page Structure**: Separate pages for Dashboard and User Management
+- **Active Navigation**: Sidebar highlights current page automatically
+- **Clean Architecture**: Organized pages and components structure
 
 ## Tech Stack
 
 - **React 18** - Functional Components with Hooks
 - **Vite** - Fast development server and build tool
+- **React Router DOM** - Client-side routing and navigation
 - **Tailwind CSS** - Utility-first CSS framework with custom theme
 - **Redux Toolkit** - State management with slices
 - **React Query (TanStack Query)** - Server state management and caching
@@ -46,7 +63,7 @@ src/
     uiSlice.js         # UI state management (sidebar toggle)
     userSlice.js       # User state (search, filter, sort)
   components/
-    Sidebar.jsx         # Navigation sidebar
+    Sidebar.jsx         # Navigation sidebar with routing
     Navbar.jsx          # Top navigation bar
     TodaysSales.jsx     # Sales cards component
     VisitorInsights.jsx # Line chart for visitors
@@ -56,13 +73,16 @@ src/
     TopProducts.jsx     # Products list with progress
     SalesMapping.jsx    # Country sales map placeholder
     VolumeVsService.jsx # Volume vs Service chart
-    UsersTable.jsx      # Users management table
+    UserManagement.jsx  # Complete user management table with React Query
+  pages/
+    Dashboard.jsx       # Main dashboard page with all components
+    UserManagementPage.jsx # User management page wrapper
   services/
     api.js              # Axios instance and API endpoints
   hooks/
     useUsersQuery.js    # React Query hook for users
     useFilteredUsers.js # Custom hook for filtered/sorted users
-  App.jsx               # Main application component
+  App.jsx               # Main application with routing setup
   main.jsx              # Application entry point
   index.css             # Tailwind CSS imports
 ```
@@ -124,24 +144,33 @@ npm run preview
 
 ## API Integration
 
-The application uses the JSONPlaceholder API for user data:
+The application uses JSONPlaceholder API for user data with React Query for advanced state management:
 
 - **Endpoint**: `https://jsonplaceholder.typicode.com/users`
 - **Method**: GET
 - **Response**: Array of user objects with name, email, company, and address fields
 
-### Custom Hooks
+### React Query Configuration
 
-#### useUsersQuery
-- Uses React Query to fetch and cache user data
-- Handles loading and error states
-- Provides automatic refetching
+#### Query Setup
+- **Query Key**: `['users']` for cache identification
+- **Stale Time**: 5 minutes - Data remains fresh for 5 minutes
+- **Cache Time**: 10 minutes - Data stays in memory for 10 minutes
+- **Retry Logic**: 3 attempts with exponential backoff
+- **Background Refetching**: Automatically refetches on window focus
 
-#### useFilteredUsers
-- Combines API data with Redux state
-- Implements search, filtering, and sorting logic
-- Uses useMemo for performance optimization
-- Returns filtered users and available cities
+#### UserManagement Component Features
+- **useQuery Hook**: Fetches and manages user data state
+- **Loading State**: Shows spinner during data fetch
+- **Error Handling**: Displays error messages with retry functionality
+- **Refetch Capability**: Manual retry button for failed requests
+- **Performance Optimized**: Uses useMemo for filtering and sorting operations
+
+#### Data Processing
+- **Dynamic City Filter**: Automatically extracts unique cities from API data
+- **Real-time Search**: Case-insensitive search across name and email fields
+- **Smart Sorting**: Toggle between ascending and descending order
+- **Results Counter**: Shows filtered vs total user count
 
 ## Assumptions Made
 
@@ -161,22 +190,33 @@ The application uses the JSONPlaceholder API for user data:
 - **Tailwind CSS**: Purge-ready CSS for minimal bundle size
 
 ## Responsive Design
-
-- Mobile-first approach with Tailwind CSS breakpoints
 - Grid layouts that adapt to screen size
 - Collapsible sidebar on smaller screens (can be implemented)
 - Horizontal scroll on tables for mobile devices
+
+## Recent Implementation Updates
+
+### Part 2: API Integration & User Management (Latest)
+- **Complete User Management System**: Full-featured table with search, filter, and sort capabilities
+- **React Query Integration**: Professional-grade data fetching with caching and error handling
+- **Advanced Routing**: React Router setup with active navigation states
+- **Optimized Layout**: Custom column width distribution for better visual hierarchy
+- **Error Recovery**: Retry functionality and graceful error handling
+- **Performance Optimization**: useMemo for expensive operations and intelligent caching
+
+### Layout Improvements
+- **Custom Grid System**: 12-column grid with optimized spans (5-4-3 distribution)
+- **Responsive Height**: Consistent minimum heights across all columns (300px)
+- **Visual Hierarchy**: Wider columns for important data (Total Revenue, Top Products)
+- **Clean Architecture**: Separated pages and components for maintainability
 
 ## Future Enhancements
 
 1. **Real-time Data**: WebSocket integration for live dashboard updates
 2. **Advanced Charts**: More sophisticated chart types and interactions
-3. **Data Export**: CSV/PDF export functionality for reports
-4. **Authentication**: User login and role-based access
-5. **Dark Mode**: Theme switching capability
-6. **Advanced Filtering**: Date ranges, multi-select filters
-7. **Data Persistence**: Local storage for user preferences
 
-## License
+3. **CRUD Operations**: Full create, update, delete functionality for users
+4. **Pagination**: Server-side pagination for large datasets
+5. **Advanced Search**: Multi-field search with advanced operators
 
-This project is for educational purposes and demonstration of modern React development practices.
+
