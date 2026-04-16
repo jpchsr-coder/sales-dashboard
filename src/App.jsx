@@ -16,12 +16,12 @@ function App() {
     <div className="min-h-screen bg-gray-50 p-4">
       <div className="flex h-full gap-4">
         {/* Sidebar */}
-        <div className="w-64 flex-shrink-0">
+        <div className="w-64 flex-shrink-0 fixed left-4 top-4 h-[calc(100vh-2rem)]">
           <Sidebar />
         </div>
 
         {/* Main Content */}
-        <div className="flex-1 flex flex-col gap-4">
+        <div className="flex-1 flex flex-col gap-4 ml-72">
           {/* Navbar */}
           <Navbar />
 
