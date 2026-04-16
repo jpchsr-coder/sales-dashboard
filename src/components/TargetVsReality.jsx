@@ -11,7 +11,7 @@ const targetData = [
 const TargetVsReality = () => {
   return (
     <div className="bg-white rounded-2xl shadow-sm p-6 h-full flex flex-col">
-      <h2 className="text-xl font-bold text-gray-800 mb-6">Target vs Reality</h2>
+      <h2 className="text-xl font-bold text-gray-800 mb-2">Target vs Reality</h2>
       
       <div className="flex-1">
         <ResponsiveContainer width="100%" height="100%">
@@ -47,14 +47,14 @@ const TargetVsReality = () => {
         </ResponsiveContainer>
       </div>
       
-      <div className="flex justify-around mt-4 pt-4 border-t border-gray-100">
+      <div className="flex justify-around mt-2 pt-2 border-t border-gray-100">
         <div className="text-center">
-          <p className="text-sm text-gray-600">Reality Sales Global</p>
-          <p className="text-xl font-bold text-gray-800">8,823</p>
+          <p className="text-xs text-gray-600">Reality Sales Global</p>
+          <p className="text-sm font-bold text-gray-800">8,823</p>
         </div>
         <div className="text-center">
-          <p className="text-sm text-gray-600">Target Sales Commercial</p>
-          <p className="text-xl font-bold text-gray-800">12,122</p>
+          <p className="text-xs text-gray-600">Target Sales Commercial</p>
+          <p className="text-sm font-bold text-gray-800">12,122</p>
         </div>
       </div>
     </div>

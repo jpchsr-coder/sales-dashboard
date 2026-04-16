@@ -9,7 +9,6 @@ import TargetVsReality from './components/TargetVsReality.jsx'
 import TopProducts from './components/TopProducts.jsx'
 import SalesMapping from './components/SalesMapping.jsx'
 import VolumeVsService from './components/VolumeVsService.jsx'
-import UsersTable from './components/UsersTable.jsx'
 
 function App() {
   return (
@@ -63,8 +62,6 @@ function App() {
               </div>
             </div>
 
-            {/* Users Table */}
-            <UsersTable />
           </div>
         </div>
       </div>
