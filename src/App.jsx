@@ -37,14 +37,14 @@ function App() {
             </div>
 
             {/* Middle Row */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-4">
-              <div className="h-full">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 mb-4">
+              <div className="lg:col-span-5 h-full">
                 <TotalRevenue />
               </div>
-              <div className="h-full min-h-[300px]">
+              <div className="lg:col-span-4 h-full min-h-[300px]">
                 <CustomerSatisfaction />
               </div>
-              <div className="h-full">
+              <div className="lg:col-span-3 h-full">
                 <TargetVsReality />
               </div>
             </div>
