@@ -3,7 +3,7 @@ import { FiSearch, FiBell } from 'react-icons/fi'
 
 const Navbar = () => {
   return (
-    <div className="bg-white h-16 shadow-sm flex items-center justify-between px-6 rounded-l-2xl">
+    <div className="bg-white h-16 flex items-center justify-between px-6 sticky top-0 z-10">
       {/* Left - Title */}
       <h1 className="text-2xl font-bold text-gray-800">Dashboard</h1>
 
