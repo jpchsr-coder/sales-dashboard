@@ -59,7 +59,7 @@ const VisitorInsights = () => {
             wrapperStyle={{ fontSize: '14px' }}
           />
           <Line 
-            type="monotone" 
+            type="linear" 
             dataKey="loyal" 
             stroke="#9333ea" 
             strokeWidth={2}
@@ -67,7 +67,7 @@ const VisitorInsights = () => {
             dot={{ fill: '#9333ea', r: 4 }}
           />
           <Line 
-            type="monotone" 
+            type="linear" 
             dataKey="new" 
             stroke="#dc2626" 
             strokeWidth={2}
@@ -75,7 +75,7 @@ const VisitorInsights = () => {
             dot={<CustomDot />}
           />
           <Line 
-            type="monotone" 
+            type="linear" 
             dataKey="unique" 
             stroke="#16a34a" 
             strokeWidth={2}
