@@ -42,7 +42,7 @@ function App() {
               <div className="h-full">
                 <TotalRevenue />
               </div>
-              <div className="h-full">
+              <div className="h-full min-h-[300px]">
                 <CustomerSatisfaction />
               </div>
               <div className="h-full">

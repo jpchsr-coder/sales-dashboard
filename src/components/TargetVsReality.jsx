@@ -1,14 +1,11 @@
 import React from 'react'
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 
 const targetData = [
-  { month: 'Jan', reality: 4000, target: 5000 },
-  { month: 'Feb', reality: 3000, target: 4500 },
-  { month: 'Mar', reality: 5000, target: 5500 },
-  { month: 'Apr', reality: 2780, target: 4000 },
-  { month: 'May', reality: 3890, target: 4200 },
-  { month: 'Jun', reality: 4390, target: 4800 },
-  { month: 'Jul', reality: 4823, target: 5122 },
+  { month: 'Q1', reality: 4000, target: 5000 },
+  { month: 'Q2', reality: 3000, target: 4500 },
+  { month: 'Q3', reality: 5000, target: 5500 },
+  { month: 'Q4', reality: 2780, target: 4000 },
 ]
 
 const TargetVsReality = () => {
@@ -18,40 +15,35 @@ const TargetVsReality = () => {
       
       <div className="flex-1">
         <ResponsiveContainer width="100%" height="100%">
-        <BarChart data={targetData}>
-          <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-          <XAxis 
-            dataKey="month" 
-            tick={{ fontSize: 12 }}
-            stroke="#888"
-          />
-          <YAxis 
-            tick={{ fontSize: 12 }}
-            stroke="#888"
-          />
-          <Tooltip 
-            contentStyle={{ 
-              backgroundColor: 'white',
-              border: '1px solid #e5e7eb',
-              borderRadius: '8px'
-            }}
-          />
-          <Legend 
-            wrapperStyle={{ fontSize: '14px' }}
-          />
-          <Bar 
-            dataKey="reality" 
-            fill="#16a34a" 
-            name="Reality Sales"
-            radius={[8, 8, 0, 0]}
-          />
-          <Bar 
-            dataKey="target" 
-            fill="#eab308" 
-            name="Target Sales"
-            radius={[8, 8, 0, 0]}
-          />
-        </BarChart>
+          <BarChart data={targetData} barCategoryGap="20%">
+            <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+            <XAxis 
+              dataKey="month" 
+              tick={{ fontSize: 12 }}
+              stroke="#888"
+            />
+            <YAxis 
+              tick={{ fontSize: 12 }}
+              stroke="#888"
+            />
+            <Tooltip 
+              contentStyle={{ 
+                backgroundColor: 'white',
+                border: '1px solid #e5e7eb',
+                borderRadius: '8px'
+              }}
+            />
+            <Bar 
+              dataKey="reality" 
+              fill="#16a34a" 
+              name="Reality Sales"
+            />
+            <Bar 
+              dataKey="target" 
+              fill="#eab308" 
+              name="Target Sales"
+            />
+          </BarChart>
         </ResponsiveContainer>
       </div>
       

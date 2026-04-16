@@ -14,65 +14,62 @@ const satisfactionData = [
 const CustomerSatisfaction = () => {
   return (
     <div className="bg-white rounded-2xl shadow-sm p-6 h-full flex flex-col">
-      <div className="flex justify-between items-center mb-6">
-        <h2 className="text-xl font-bold text-gray-800">Customer Satisfaction</h2>
-        <div className="flex space-x-4 text-sm">
-          <div className="flex items-center">
-            <div className="w-3 h-3 bg-blue-500 rounded-full mr-2"></div>
-            <span className="text-gray-600">Last Month: </span>
-            <span className="font-semibold text-gray-800 ml-1">$3,004</span>
-          </div>
-          <div className="flex items-center">
-            <div className="w-3 h-3 bg-green-500 rounded-full mr-2"></div>
-            <span className="text-gray-600">This Month: </span>
-            <span className="font-semibold text-gray-800 ml-1">$4,504</span>
-          </div>
-        </div>
-      </div>
+      <h2 className="text-xl font-bold text-gray-800 mb-6">Customer Satisfaction</h2>
       
       <div className="flex-1">
         <ResponsiveContainer width="100%" height="100%">
-        <AreaChart data={satisfactionData}>
-          <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-          <XAxis 
-            dataKey="month" 
-            tick={{ fontSize: 12 }}
-            stroke="#888"
-          />
-          <YAxis 
-            tick={{ fontSize: 12 }}
-            stroke="#888"
-          />
-          <Tooltip 
-            contentStyle={{ 
-              backgroundColor: 'white',
-              border: '1px solid #e5e7eb',
-              borderRadius: '8px'
-            }}
-          />
-          <Legend 
-            wrapperStyle={{ fontSize: '14px' }}
-          />
-          <Area 
-            type="monotone" 
-            dataKey="lastMonth" 
-            stroke="#3b82f6" 
-            strokeWidth={2}
-            fill="#3b82f6"
-            fillOpacity={0.3}
-            name="Last Month"
-          />
-          <Area 
-            type="monotone" 
-            dataKey="thisMonth" 
-            stroke="#16a34a" 
-            strokeWidth={2}
-            fill="#16a34a"
-            fillOpacity={0.3}
-            name="This Month"
-          />
-        </AreaChart>
+          <AreaChart data={satisfactionData}>
+            <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+            <XAxis 
+              dataKey="month" 
+              tick={{ fontSize: 12 }}
+              stroke="#888"
+            />
+            <YAxis 
+              tick={{ fontSize: 12 }}
+              stroke="#888"
+            />
+            <Tooltip 
+              contentStyle={{ 
+                backgroundColor: 'white',
+                border: '1px solid #e5e7eb',
+                borderRadius: '8px'
+              }}
+            />
+            <Legend 
+              wrapperStyle={{ fontSize: '14px' }}
+            />
+            <Area 
+              type="monotone" 
+              dataKey="lastMonth" 
+              stroke="#3b82f6" 
+              strokeWidth={2}
+              fill="#3b82f6"
+              fillOpacity={0.3}
+              name="Last Month"
+            />
+            <Area 
+              type="monotone" 
+              dataKey="thisMonth" 
+              stroke="#16a34a" 
+              strokeWidth={2}
+              fill="#16a34a"
+              fillOpacity={0.3}
+              name="This Month"
+            />
+          </AreaChart>
         </ResponsiveContainer>
+      </div>
+      
+      <div className="flex justify-around mt-4 pt-4 border-t border-gray-100">
+        <div className="text-center">
+          <p className="text-sm text-gray-600">Last Month</p>
+          <p className="text-xl font-bold text-gray-800">$3,004</p>
+        </div>
+        <div className="text-center">
+          <p className="text-sm text-gray-600">This Month</p>
+          <p className="text-xl font-bold text-gray-800">$4,504</p>
+        </div>
       </div>
     </div>
   )
